@@ -1,0 +1,35 @@
+<template>
+    <div style="overflow-x: scroll; overflow-y: scroll;width: 100%;height: 400px;">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <template for:each={parsedColumns} for:item="col">
+                        <th class="" scope="col" key={col.key}>
+                            <div class="slds-truncate" title="Application Number">{col.label}</div>
+                        </th>
+                    </template>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={parsedRecords} for:item="record">
+                    <tr class="slds-hint-parent" key={record.key} style="text-align: center;">
+                        <template for:each={record.values} for:item="value">
+                            <td key={indexKey}>
+                                {value}
+                            </td>
+                        </template>
+                        <template if:true={actions}>
+                            <td>
+                                <lightning-button-menu  alternative-text="Show menu" onclick={showActions} menu-alignment="center">
+                                    <template for:each={actions} for:item="action">
+                                        <lightning-menu-item key={action.actionlabel} if:true={actionVisible} value={action.actionHandler} label={action.actionlabel} data-recdid={record.key} onclick={handleAction}></lightning-menu-item>
+                                    </template>
+                                </lightning-button-menu>
+                            </td>
+                        </template>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+</template>

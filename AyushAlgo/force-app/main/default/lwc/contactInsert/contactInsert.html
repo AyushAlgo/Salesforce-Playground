@@ -1,0 +1,21 @@
+<template>
+    <div data-id="printablDiv">
+        <h1>I Am Printable</h1>
+    </div>
+    <lightning-card class="slds-p-left_small">
+        <h2 slot='title' >
+            <lightning-icon icon-name="action:preview" alternative-text="Preview" title="Preview" size='x-small'></lightning-icon>
+            <p class="slds-show_inline slds-m-left_medium">
+                Insert Contact
+            </p>
+        </h2>
+        <p slot='footer'>
+            <lightning-button variant="brand" label="Insert" onclick={handleClick}></lightning-button>
+            <lightning-button variant="brand" label="Print" onclick={handlePrint}></lightning-button>
+        </p>
+        <lightning-input placeholder='First Name' type="text" value={nameValue1} onchange={handleFname} class="slds-p-left_x-small slds-p-right_x-small slds-m-top_xx-small" variant = "label-hidden"></lightning-input>
+        <lightning-input placeholder='Last Name' type="text" value={nameValue2} onchange={handleLname} class="slds-p-left_x-small slds-p-right_x-small slds-m-top_xx-small" variant = "label-hidden"></lightning-input>
+        <lightning-input placeholder='Phone' type="text" value={nameValue3} onchange={handlePhone} class="slds-p-left_x-small slds-p-right_x-small slds-m-top_xx-small" variant = "label-hidden"></lightning-input>
+        <lightning-input placeholder='Birthdate' type="date" value={nameValue4} onchange={handleBirthDate} class="slds-p-left_x-small slds-p-right_x-small slds-m-top_xx-small" variant = "label-hidden"></lightning-input>
+    </lightning-card>
+</template>

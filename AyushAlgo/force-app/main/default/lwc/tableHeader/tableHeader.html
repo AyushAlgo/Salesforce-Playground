@@ -1,0 +1,87 @@
+<template>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+        <thead>
+          <tr class="slds-line-height_reset">
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Application Number">Application Number</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Application Type">Application Type</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Permit Number">Permit Number</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Permit Type">Permit Type</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Application Status">Application Status</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Action">Action</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+            <template for:each={permitChunk} for:item='item'>
+                <tr class="slds-hint-parent" key={item.permit_number}>
+                    <td>
+                        <div class="slds-truncate">{item.application_number}
+                          <lightning-button-icon icon-name="utility:edit"  variant="bare"  alternative-text="Edit"   class="slds-m-left_xx-small" title="Edit"></lightning-button-icon>
+                        </div>
+                      </td>
+                    <td>
+                        <div class="slds-truncate">{item.application_type}
+                          <lightning-button-icon icon-name="utility:edit" variant="bare"  alternative-text="Edit"   class="slds-m-left_xx-small" title="Edit"></lightning-button-icon>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate">{item.permit_number}
+                          <lightning-button-icon icon-name="utility:edit" variant="bare"  alternative-text="Edit"   class="slds-m-left_xx-small" title="Edit"></lightning-button-icon>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate">{item.permit_type}
+                          <lightning-button-icon icon-name="utility:edit" variant="bare"  alternative-text="Edit"   class="slds-m-left_xx-small" title="Edit"></lightning-button-icon>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate">{item.application_status}
+                          <lightning-button-icon icon-name="utility:edit" variant="bare"  alternative-text="Edit"   class="slds-m-left_xx-small" title="Edit"></lightning-button-icon>
+                        </div>
+                    </td>
+                    <td>
+                      <lightning-button-menu  alternative-text="Show menu" onclick={showActions} menu-alignment="center">
+                        <lightning-menu-item if:true={actionVisible} value="Delete" label="Delete"></lightning-menu-item>
+                      </lightning-button-menu>
+                    </td>
+                </tr>
+            </template>
+        </tbody>  
+    </table>
+    <!-- Pagination Starts -->
+    &nbsp;
+    <div style="text-align:center;">
+        <lightning-button-icon 
+            icon-name="utility:chevronleft" 
+            alternative-text="View previous page"
+            variant="border-filled" 
+            title="Previous"
+            data-label="Previous" 
+            onclick={handleClick} 
+            disabled={previousDisabled}>
+        </lightning-button-icon>
+        &nbsp;<strong>{pageNumber}</strong>&nbsp;
+        <lightning-button-icon 
+            icon-name="utility:chevronright" 
+            alternative-text="View next page"
+            variant="border-filled" 
+            title="Next"
+            data-label="Next" 
+            onclick={handleClick} 
+            disabled={nextDisabled}>
+        </lightning-button-icon>
+    </div>
+    <!-- Pagination Ends -->
+
+</template>

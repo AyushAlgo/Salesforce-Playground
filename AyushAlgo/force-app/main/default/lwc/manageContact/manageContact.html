@@ -1,0 +1,12 @@
+<template>
+    <lightning-input type="text" data-name="FirstName" label="First Name" value={data.FirstName} onchange={handleChange}></lightning-input>
+    <lightning-input type="text" data-name="LastName" label="Last Name" value={data.LastName} onchange={handleChange}></lightning-input>
+    <lightning-input type="Date" data-name="Birthdate" label="Date Of Birth" value={data.Birthdate} onchange={handleChange}></lightning-input>
+    <lightning-input type="Datetime" data-name="Invited__c" label="Invited Date Time" value={data.Invited__c} onchange={handleChange}></lightning-input>
+    <lightning-input type="Checkbox" data-name="HasOptedOutOfFax" label="Has Opted Out For Fax" value={data.HasOptedOutOfFax} onchange={handleChange}></lightning-input>
+    <lightning-input type="Number" data-name="Number_Of_Units__c" label="Number Of Units" value={data.Number_Of_Units__c} onchange={handleChange}></lightning-input>
+    <lightning-input type="text" data-name="Currencies__c" label="Currencies" value={data.Currencies__c} onchange={handleChange}></lightning-input>
+    <lightning-input type="text" data-name="Type__c" label="Type" value={data.Type__c} onchange={handleChange}></lightning-input>
+    <br/><br/>
+    <lightning-button variant="brand" label="Upsert" class="slds-float_right" onclick={handleClick}></lightning-button>
+</template>

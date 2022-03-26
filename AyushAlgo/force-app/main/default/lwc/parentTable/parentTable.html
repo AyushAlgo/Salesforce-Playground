@@ -1,0 +1,5 @@
+<template>
+    <template if:true={dataLoaded}>
+        <c-child-table records={records} columns={columns} actions={actions} record-key="Id" onfiredelete={handledelete} onfireupdate={handleupdate}></c-child-table>
+    </template>
+</template>

@@ -1,0 +1,38 @@
+<template>
+
+    <lightning-combobox label="" data-name="agefilter" variant="label-hidden" value={age} options={ageOptions} style="width: 200px;margin-bottom:1.1rem;margin-left:1.1rem;" placeholder="Search By Age" class="slds-float_right" onchange={handleFilter}></lightning-combobox>
+    <lightning-input type="search" data-name="namefilter" label="" variant="label-hidden" value={nameSearch} style="width: 200px;margin-bottom:1.1rem;" placeholder="Search By Name" class="slds-float_right" onchange={handleFilter} ></lightning-input>
+    <br/>
+    <!-- <lightning-card> -->
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="First Name">First Name</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Last Name">Last Name</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Age">Age</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={filteredData} for:item='item'>
+                    <tr class="slds-hint-parent" key={item.firstName}>
+                        <td>
+                            <div class="slds-truncate">{item.firstName}</div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate">{item.lastName}</div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate">{item.age}</div>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    <!-- </lightning-card> -->
+</template>
